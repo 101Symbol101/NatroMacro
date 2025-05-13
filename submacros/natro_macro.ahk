@@ -342,8 +342,8 @@ nm_importConfig()
 		, "priorityListNumeric", 12345678)
 
 	config["Status"] := Map("StatusLogReverse", 0
-		, "TotalRuntime", 0
-		, "SessionRuntime", 0
+		, "TotalRuntime", unlogged
+		, "SessionRuntime", unlogged
 		, "TotalGatherTime", 0
 		, "SessionGatherTime", 0
 		, "TotalConvertTime", 0
