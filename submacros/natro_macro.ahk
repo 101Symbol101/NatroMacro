@@ -1,4 +1,4 @@
-﻿/*
+/*
 Natro Macro (https://github.com/NatroTeam/NatroMacro)
 Copyright © Natro Team (https://github.com/NatroTeam)
 
@@ -886,11 +886,11 @@ nm_ReadIni(path)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; GAME DATA
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-nectarnames:=["Comforting", "Refreshing", "Satisfying", "Motivating", "Invigorating"]
-planternames:=["PlasticPlanter", "CandyPlanter", "BlueClayPlanter", "RedClayPlanter", "TackyPlanter", "PesticidePlanter", "HeatTreatedPlanter", "HydroponicPlanter", "PetalPlanter", "PlanterOfPlenty", "PaperPlanter", "TicketPlanter"]
-fieldnames:=["dandelion", "sunflower", "mushroom", "blueflower", "clover", "strawberry", "spider", "bamboo", "pineapple", "stump", "cactus", "pumpkin", "pinetree", "rose", "mountaintop", "pepper", "coconut"]
+nectarnames:=["Comforting", "Refreshing", "Satisfying", "Motivating", "Invigorating", "Tester"]
+planternames:=["PlasticPlanter", "CandyPlanter", "BlueClayPlanter", "RedClayPlanter", "TackyPlanter", "PesticidePlanter", "HeatTreatedPlanter", "HydroponicPlanter", "PetalPlanter", "PlanterOfPlenty", "PaperPlanter", "TicketPlanter", "TestPlanter"]
+fieldnames:=["dandelion", "sunflower", "mushroom", "blueflower", "clover", "strawberry", "spider", "bamboo", "pineapple", "stump", "cactus", "pumpkin", "pinetree", "rose", "mountaintop", "pepper", "coconut", "TestField"]
 
-ComfortingFields:=["Dandelion", "Bamboo", "Pine Tree"]
+ComfortingFields:=["Dandelion", "Bamboo", "Pine Tree", "TestField"]
 RefreshingFields:=["Coconut", "Strawberry", "Blue Flower"]
 SatisfyingFields:=["Pineapple", "Sunflower", "Pumpkin"]
 MotivatingFields:=["Stump", "Spider", "Mushroom", "Rose"]
@@ -901,6 +901,7 @@ InvigoratingFields:=["Pepper", "Mountain Top", "Clover", "Cactus"]
 ;planters array: [1] planter name, [2] nectar bonus, [3] speed bonus, [4] hours to complete growth (no field degradation is assumed) (rounded up 2 d.p.)
 ;assumed: hydroponic 40% faster near blue flowers, heat-treated 40% faster near red flowers
 BambooPlanters:=[["HydroponicPlanter", 1.4, 1.375, 8.73] ; 1.925
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus 
 	, ["PetalPlanter", 1.5, 1.125, 12.45] ; 1.6875
 	, ["PesticidePlanter", 1, 1.6, 6.25] ; 1.6
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
@@ -914,6 +915,7 @@ BambooPlanters:=[["HydroponicPlanter", 1.4, 1.375, 8.73] ; 1.925
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 BlueFlowerPlanters:=[["HydroponicPlanter", 1.4, 1.345, 8.93] ; 1.883
+		, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["TackyPlanter", 1, 1.5, 5.34] ; 1.5
 	, ["BlueClayPlanter", 1.2, 1.1725, 5.12] ; 1.407
@@ -927,6 +929,7 @@ BlueFlowerPlanters:=[["HydroponicPlanter", 1.4, 1.345, 8.93] ; 1.883
 	, ["TicketPlanter", 2, 1, 2]] ; 1
 
 CactusPlanters:=[["HeatTreatedPlanter", 1.4, 1.215, 9.88] ; 1.701
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["RedClayPlanter", 1.2, 1.1075, 5.42] ; 1.29
 	, ["HydroponicPlanter", 1, 1.25, 9.6] ; 1.25
@@ -940,6 +943,7 @@ CactusPlanters:=[["HeatTreatedPlanter", 1.4, 1.215, 9.88] ; 1.701
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 CloverPlanters:=[["HeatTreatedPlanter", 1.4, 1.17, 10.26] ; 1.638
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["TackyPlanter", 1, 1.5, 5.34] ; 1.5
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["RedClayPlanter", 1.2, 1.085, 5.53] ; 1.302
@@ -953,6 +957,7 @@ CloverPlanters:=[["HeatTreatedPlanter", 1.4, 1.17, 10.26] ; 1.638
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 CoconutPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["CandyPlanter", 1, 1.5, 2.67] ; 1.5
 	, ["PetalPlanter", 1, 1.447, 9.68] ; 1.447
 	, ["HydroponicPlanter", 1.4, 1.023, 11.74] ; 1.4322
@@ -966,6 +971,7 @@ CoconutPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 DandelionPlanters:=[["PetalPlanter", 1.5, 1.4235, 9.84] ; 2.13525
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["TackyPlanter", 1.25, 1.5, 5.33] ; 1.875
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["HydroponicPlanter", 1.4, 1.0485, 11.45] ; 1.4679
@@ -979,6 +985,7 @@ DandelionPlanters:=[["PetalPlanter", 1.5, 1.4235, 9.84] ; 2.13525
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 MountainTopPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["HeatTreatedPlanter", 1.4, 1.25, 9.6] ; 1.75
 	, ["RedClayPlanter", 1.2, 1.125, 5.34] ; 1.35
 	, ["HydroponicPlanter", 1, 1.25, 9.6] ; 1.25
@@ -992,6 +999,7 @@ MountainTopPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 MushroomPlanters:=[["HeatTreatedPlanter", 1.4, 1.3425, 8.94] ; 1.8795
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["TackyPlanter", 1, 1.5, 5.34] ; 1.5
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["PesticidePlanter", 1.3, 1, 10] ; 1.3
@@ -1005,6 +1013,7 @@ MushroomPlanters:=[["HeatTreatedPlanter", 1.4, 1.3425, 8.94] ; 1.8795
 	, ["TicketPlanter", 2, 1, 2]] ; 1
 
 PepperPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["HeatTreatedPlanter", 1.4, 1.46, 8.22] ; 2.044
 	, ["RedClayPlanter", 1.2, 1.23, 4.88] ; 1.476
 	, ["PetalPlanter", 1, 1.04, 13.47] ; 1.04
@@ -1018,6 +1027,7 @@ PepperPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 PineTreePlanters:=[["HydroponicPlanter", 1.4, 1.42, 8.46] ; 1.988
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["PetalPlanter", 1.5, 1.08, 12.97] ; 1.62
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["BlueClayPlanter", 1.2, 1.21, 4.96] ; 1.452
@@ -1031,6 +1041,7 @@ PineTreePlanters:=[["HydroponicPlanter", 1.4, 1.42, 8.46] ; 1.988
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 PineapplePlanters:=[["PetalPlanter", 1.5, 1.445, 9.69] ; 2.1675
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["CandyPlanter", 1, 1.5, 2.67] ; 1.5
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["PesticidePlanter", 1.3, 1, 10] ; 1.3
@@ -1044,6 +1055,7 @@ PineapplePlanters:=[["PetalPlanter", 1.5, 1.445, 9.69] ; 2.1675
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 PumpkinPlanters:=[["PetalPlanter", 1.5, 1.285, 10.9] ; 1.9275
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["PesticidePlanter", 1.3, 1, 10] ; 1.3
 	, ["RedClayPlanter", 1.2, 1.055, 5.69] ; 1.266
@@ -1057,6 +1069,7 @@ PumpkinPlanters:=[["PetalPlanter", 1.5, 1.285, 10.9] ; 1.9275
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 RosePlanters:=[["HeatTreatedPlanter", 1.4, 1.41, 8.52] ; 1.974
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["PesticidePlanter", 1.3, 1, 10] ; 1.3
 	, ["RedClayPlanter", 1, 1.205, 4.98] ; 1.205
@@ -1070,6 +1083,7 @@ RosePlanters:=[["HeatTreatedPlanter", 1.4, 1.41, 8.52] ; 1.974
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 SpiderPlanters:=[["PesticidePlanter", 1.3, 1.6, 6.25] ; 2.08
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["PetalPlanter", 1, 1.5, 9.33] ; 1.5
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["HeatTreatedPlanter", 1.4, 1, 12] ; 1.4
@@ -1083,6 +1097,7 @@ SpiderPlanters:=[["PesticidePlanter", 1.3, 1.6, 6.25] ; 2.08
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 StrawberryPlanters:=[["PesticidePlanter", 1, 1.6, 6.25] ; 1.6
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["CandyPlanter", 1, 1.5, 2.67] ; 1.5
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["HydroponicPlanter", 1.4, 1, 12] ; 1.3
@@ -1096,6 +1111,7 @@ StrawberryPlanters:=[["PesticidePlanter", 1, 1.6, 6.25] ; 1.6
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 StumpPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["HeatTreatedPlanter", 1.4, 1.03, 11.65] ; 1.442
 	, ["HydroponicPlanter", 1, 1.375, 8.73] ; 1.375
 	, ["PesticidePlanter", 1.3, 1, 10] ; 1.3
@@ -1109,6 +1125,7 @@ StumpPlanters:=[["PlanterOfPlenty", 1.5, 1.5, 10.67] ; 2.25
 	, ["TicketPlanter", 2, 1, 2]] ; 2
 
 SunflowerPlanters:=[["PetalPlanter", 1.5, 1.3415, 10.44] ; 2.01225
+	, ["TestPlanter", 100, 100, 1] ; 100 speed bonus
 	, ["TackyPlanter", 1.25, 1.5, 5.34] ; 1.875
 	, ["PlanterOfPlenty", 1.5, 1, 16] ; 1.5
 	, ["PesticidePlanter", 1.3, 1, 10] ; 1.3
@@ -2293,7 +2310,7 @@ for k,v in ["PMondoGuid","PMondoGuidComplete","PFieldBoosted","PFieldGuidExtend"
 #include "*i %A_ScriptDir%\..\settings\personal.ahk"
 
 ; add tabs
-TabArr := ["Gather","Collect/Kill","Boost","Quests","Planters","Status","Settings","Misc","Credits"], (BuffDetectReset = 1) && TabArr.Push("Advanced")
+TabArr := ["Gather","Collect/Kill","Boost","Quests","Planters","Status","Settings","Misc","Credits", "Confidential"], (BuffDetectReset = 1) && TabArr.Push("Advanced")
 (TabCtrl := MainGui.Add("Tab", "x0 y-1 w500 h240 -Wrap", TabArr)).OnEvent("Change", (*) => TabCtrl.Focus())
 SendMessage 0x1331, 0, 20, , TabCtrl ; set minimum tab width
 ; check for update
@@ -2702,7 +2719,7 @@ MainGui.SetFont("s8 cDefault Norm", "Tahoma")
 (GuiCtrl := MainGui.Add("CheckBox", "xp yp+18 vGlueDisCheck Disabled Checked" GlueDisCheck, "Glue")).Section := "Collect", GuiCtrl.OnEvent("Click", nm_saveConfig)
 (GuiCtrl := MainGui.Add("CheckBox", "xp yp+18 vRoboPassCheck Disabled Checked" RoboPassCheck, "Robo Pass")).Section := "Collect", GuiCtrl.OnEvent("Click", nm_saveConfig)
 ;beesmas
-beesmasActive := 0
+beesmasActive := 1
 MainGui.SetFont("w700")
 MainGui.Add("GroupBox", "x135 y149 w360 h87 vBeesmasGroupBox", "Beesmas (Inactive)")
 MainGui.SetFont("s8 cDefault Norm", "Tahoma")
@@ -3129,7 +3146,7 @@ MainGui.Add("Text", "x354 y196 w144 h36 0x7 vTextBox1" hidden)
 SetLoadingProgress(38)
 
 ;Manual Planters
-MPlanterList := ["", "Plastic", "Candy", "Blue Clay", "Red Clay", "Tacky", "Pesticide", "Heat Treated", "Hydroponic", "Petal", "Planter of Plenty", "Paper", "Ticket"]
+MPlanterList := ["", "Plastic", "Candy", "Blue Clay", "Red Clay", "Tacky", "Pesticide", "Heat Treated", "Hydroponic", "Petal", "Planter of Plenty", "Paper", "Ticket", "TestPlanter"]
 (MFieldList := [""]).Push(fieldnamelist*)
 hidden := ((PlanterMode = 1) ? "" : " Hidden")
 
